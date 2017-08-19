@@ -1,13 +1,6 @@
 <h1> names are <%= @name %> and <%= @name2 %></h1>
 <h2> <%= @name %> = <%= @player1_hit %>, <%= @name2 %> = <%= @player2_hit %></h2>
 
-
-<form action="/play" method="post">
-  <input type="submit" value="Attack player2">
+<form action="/attack">
+<input type="submit" value="Attack">
 </form>
-<h3>you have hit player2</h3><%= if @player1_hit != 0%>
-<form action="/play" method="post">
-  <input type="submit" value="Attack player1">
-</form>
-<input type="submit" value="Attack player1">
-<h3>you have hit player1</h3><%= if @player2_hit != 0%>

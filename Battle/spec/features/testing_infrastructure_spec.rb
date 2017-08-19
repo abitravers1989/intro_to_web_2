@@ -21,19 +21,9 @@ feature 'players entering names' do
   end
 end
 
-feature 'player1 seeing player2 hit points' do
-  scenario 'on play page hit points from players can be seen' do
-    sign_in_and_play
-    expect(page).to have_content "catface = 0, waterbottle = 0"
-  end
-end
-
-
-
-feature 'player1 attacking player2' do
-  scenario 'receiving confirmation on play page' do
-    sign_in_and_play
-    click_button('Attack player2')
-    expect(page).to have_content "you have hit player2"
-  end
-end
+# feature 'player1 seeing player2 hit points' do
+#   scenario 'on play page hit points from players can be seen' do
+#     sign_in_and_play
+#     expect(page).to have_content "catface = 0, waterbottle = 0"
+#   end
+# end
