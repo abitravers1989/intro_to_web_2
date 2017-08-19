@@ -24,6 +24,7 @@ class MyApp < Sinatra::Base
   get '/attack' do
     @name = $player_1.name
     @name2 = $player_1.name
+    @name.attack(@name2)
     erb :attack
   end
 
