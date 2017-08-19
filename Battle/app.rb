@@ -10,23 +10,20 @@ class MyApp < Sinatra::Base
   end
 
   post '/name' do
-    # p params
-    # @name = params[:name]
-    # @name2 = params[:name2]
-    session[:name] = params[:name]
-    session[:name2] = params[:name2]
+    $player_1 = Player.new(params[:name])
+    $player_2 = Player.new(params[:name2])
     redirect '/play'
   end
 
   get '/play' do
-    @name = session[:name]
-    @name2 = session[:name2]
+    @name = $player_1.name
+    @name2 = $player_2.name
     erb(:play)
   end
 
   get '/attack' do
-    @name = session[:name]
-    @name2 = session[:name2]
+    @name = $player_1.name
+    @name2 = $player_1.name
     erb :attack
   end
 
