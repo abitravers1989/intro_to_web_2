@@ -9,15 +9,15 @@ class MyApp < Sinatra::Base
     erb(:index)
   end
 
-  post '/name' do
-    $player_1 = Player.new(params[:name])
-    $player_2 = Player.new(params[:name2])
-    redirect '/play'
+  post '/names' do
+    $name = Player.new(params[:name])
+    $name2 = Player.new(params[:name2])
+    redirect "/play"
   end
 
   get '/play' do
-    @name = $player_1.name
-    @name2 = $player_2.name
+    @name = $name.name
+    @name2 = $name2.name
     erb(:play)
   end
 
@@ -25,6 +25,7 @@ class MyApp < Sinatra::Base
     @name = $player_1.name
     @name2 = $player_1.name
     @name.attack(@name2)
+    Game.new.attack($name2)
     erb :attack
   end
 
